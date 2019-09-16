@@ -1,18 +1,18 @@
-var veryHungry = false;
-
+var remembers = false;
+var speeds = false;
 function setup() {
 
   // Change these to change the title and author of the story
-  document.getElementById('title').innerHTML="Goldilocks & the Three Bears"; // title
+  document.getElementById('title').innerHTML="Bill Nye the Gamer guy"; // title
 
-  document.getElementById('author').innerHTML="Jon Stapleton"; // author
+  document.getElementById('author').innerHTML="Daniel A. Vargas Acevedo"; // author
 
 
   
   // All of your code goes under here
   
 
-  var story = 'Goldilocks has been lost in the woods for ' + many() + ' hours. Eventually she discovers a house, and smells something delicious. ' + delicious(); // Create the text
+  var story = 'One day Bill was shopping for things he needed he was going back to his car he put the paint can on top of the car to open the car.' + remember()+' He is driving back home at the speed limit but he wants to get home faster'+ speed()+' as he is getting home';+ //police();+'.' // Create the text
 
   printToPage(story); // Print the text to the webpage
 }
@@ -21,29 +21,34 @@ function setup() {
 
 // Put your functions below here:
 
-function many() {
-  let hours = Math.floor(random(1, 6)); // Random number rounded down
-  if(hours > 3) {
-    veryHungry = true;
-  }
-  return hours
-}
-
-function delicious() {
-  if(veryHungry == true) {
-    return "Goldilocks is very hungry, so she goes inside."
+function remember() {
+  let num = Math.floor(random(1, 6)); // Random number rounded down
+  if(num > 3) {
+    remembers = true;
+    return " and he remembers to take the paint can inside the car";
   } else {
-    let inspection = inspects();
-    return inspection;
+    remembers = false;
+    return " and he forgets to take the paint can inside the car.";
   }
 }
 
-function inspects() {
+function speed() {
+  let tea = Math.floor(random(1, 6));
+  if(tea > 3) {
+    speeds = true;
+    return " but he decided to stay with in the speed limit"
+  } else {
+    speeds = false;
+    return " ,he is to desperate and decides to speed up over the limit." + police();
+  }
+}
+
+function police() {
   let insp = random(1, 6);
   if(insp > 5) {
-    return "Goldilocks sees fresh bear tracks leaving the house!"
+    return " the police pass by but don't go through his street"
   } else {
-    return "Goldilocks inspects the house and everything seems alright. She goes inside."
+    return " the police pass by the street he is going through. He gets caught"
   }
 }
 
